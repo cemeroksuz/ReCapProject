@@ -9,36 +9,76 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            CarTest();
+            //CarTest();
             //ColorTest();
-            //BrandTest();
+            BrandTest();
         }
 
         private static void BrandTest()
         {
             BrandManager brandManager = new BrandManager(new EfBrandDal());
-            foreach (var brand in brandManager.GetAll())
+            var result = brandManager.GetAll();
+            if (result.Success)
             {
-                Console.WriteLine(brand.BrandName);
+
+                foreach (var brand in brandManager.GetAll().Data)
+                {
+                    Console.WriteLine(brand.BrandName);
+                }
+                Console.WriteLine();
+                Console.WriteLine(result.Message);
             }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
+
+            
         }
 
         private static void ColorTest()
         {
             ColorManager colorManager = new ColorManager(new EfColorDal());
-            foreach (var color in colorManager.GetAll())
+            var result = colorManager.GetAll();
+            if (result.Success)
             {
-                Console.WriteLine(color.ColorName);
+
+                foreach (var color in colorManager.GetAll().Data)
+                {
+                    Console.WriteLine(color.ColorName);
+                }
+                Console.WriteLine();
+                Console.WriteLine(result.Message);
             }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
+
+            
         }
 
         private static void CarTest()
         {
             CarManager carManager = new CarManager(new EfCarDal());
-            foreach (var car in carManager.GetCarDetails())
+
+            var result = carManager.GetCarDetails();
+            if (result.Success)
             {
-                Console.WriteLine(car.CarName + " - "+car.BrandName);
+
+                foreach (var car in carManager.GetCarDetails().Data)
+                {
+                    Console.WriteLine(car.CarName + " - " + car.BrandName);
+
+                }
+                Console.WriteLine();
+                Console.WriteLine(result.Message);
             }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
+            
         }
     }
 }
