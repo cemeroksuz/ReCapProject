@@ -62,7 +62,10 @@ namespace ConsoleUI
         private static void CarTest()
         {
             CarManager carManager = new CarManager(new EfCarDal());
-            var result = carManager.GetCarDetails();
+            
+            Car car1 = new Car {  CarId =2004, BrandId=4, ColorId=10, ModelYear="2011", DailyPrice = 350, Descriptions="BMW 116i" };   
+
+            var result = carManager.Update(car1);
             if (result.Success)
             {
 

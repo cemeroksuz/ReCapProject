@@ -26,7 +26,7 @@ namespace Business.Concrete
             if (car.Descriptions.Length < 2 || car.DailyPrice <= 0)
             {
 
-                return new ErrorResult(Messages.NameInvalid);
+                return new ErrorResult(Messages.DataInvalid);
             }
             _carDal.Add(car);
             return new Result(true, Messages.Added);
@@ -61,6 +61,7 @@ namespace Business.Concrete
         public IResult Update(Car car)
         {
             _carDal.Update(car);
+            
             return new Result(true, Messages.Updated);
         }
     }

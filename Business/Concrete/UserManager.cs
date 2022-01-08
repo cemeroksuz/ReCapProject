@@ -24,7 +24,7 @@ namespace Business.Concrete
         {
             if (user.FirstName == "" || user.LastName == "")
             {
-                return new ErrorResult(Messages.NameInvalid);
+                return new ErrorResult(Messages.DataInvalid);
             }
 
             _userDal.Add(user);

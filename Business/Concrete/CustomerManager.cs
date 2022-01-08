@@ -11,11 +11,11 @@ using System.Threading.Tasks;
 
 namespace Business.Concrete
 {
-    public class CutomerManager : ICustomerService
+    public class CustomerManager : ICustomerService
     {
         ICustomerDal _customerDal;
 
-        public CutomerManager(ICustomerDal customerDal)
+        public CustomerManager(ICustomerDal customerDal)
         {
             _customerDal = customerDal;
         }
@@ -24,7 +24,7 @@ namespace Business.Concrete
         {
             if (customer.CompanyName == "")
             {
-                return new ErrorResult(Messages.NameInvalid);
+                return new ErrorResult(Messages.DataInvalid);
             }
 
             _customerDal.Add(customer);

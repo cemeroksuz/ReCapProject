@@ -12,7 +12,7 @@ namespace Business.Constants
         public static string Updated = "Araba Güncellendi.";
         public static string Deleted = "Araba Silindi.";
         public static string Error = "İşlem Sırasında Hata Oluştu.";
-        public static string NameInvalid = "Araba Adı Geçersiz.";
+        public static string DataInvalid = "Geçersiz Kayıt";
         public static string Listed = "Listeleme Başarılı";
 
 
